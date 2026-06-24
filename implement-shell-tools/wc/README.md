@@ -11,6 +11,8 @@ It must act the same as `wc` would, if run from the directory containing this RE
 * `wc -w sample-files/3.txt`
 * `wc -c sample-files/3.txt`
 * `wc -l sample-files/*`
+* `wc -w -l sample-files/3.txt`
+* `wc -w -l sample-files/*`
 
 Matching any additional behaviours or flags are optional stretch goals.
 

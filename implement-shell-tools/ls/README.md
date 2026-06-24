@@ -6,6 +6,9 @@ Your task is to implement your own version of `ls`.
 
 It must act the same as `ls` would, if run from the directory containing this README.md file, for the following command lines:
 
+* `ls sample-files`
+* `ls sample-files/1.txt`
+* `ls sample-files/*`
 * `ls -1`
 * `ls -1 sample-files`
 * `ls -1 -a sample-files`
