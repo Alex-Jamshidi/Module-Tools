@@ -1,46 +1,73 @@
 const fs = require("fs");
 
 const arguments = process.argv;
-const filePaths = arguments.slice(2);
+const userArguments = arguments.slice(2);
 
 const index = arguments[1].lastIndexOf("/");
 const currentWorkingDirectory = arguments[1].slice(0, index + 1);
 
-let flag = filePaths[0];
-if (flag.charAt(0) == "-") {
-  flag = filePaths.shift();
-}
+const flags = userArguments
+  .filter((argument) => argument.startsWith("-"))
+  .map((argument) => argument.slice(1))
+  .join("");
 
-function splitFile(fileName) {
-  const filePath = currentWorkingDirectory + fileName;
-  const text = fs.readFileSync(filePath, "utf8").trimEnd();
-  return text.split("\n");
-}
+const flagHandlers = {
+  b: bFlag,
+  n: nFlag,
+};
 
-function printFile(lines) {
-  lines.forEach((line) => {
-    console.log(line);
+const fileNames = userArguments.filter((argument) => !argument.startsWith("-"));
+let allFilesContents = [];
+
+readFiles();
+executeFlags();
+printLines();
+
+function readFiles() {
+  fileNames.forEach((fileName) => {
+    fileContent = readFile(fileName);
+    allFilesContents.push(fileContent.split("\n"));
   });
 }
 
-function executeFlag(lines) {
-  if (flag === "-n") {
-    return lines.map((line, index) => `${String(index + 1).padStart(6, " ")} ${line}`);
-  } else if (flag === "-b") {
+function readFile(fileName) {
+  const filePath = currentWorkingDirectory + fileName;
+  return fs.readFileSync(filePath, "utf8").trimEnd();
+}
+
+function executeFlags() {
+  for (const flag of flags) {
+    if (flagHandlers[flag]) {
+      allFilesContents = flagHandlers[flag]();
+    } else {
+      console.error(`cat: illegal option -- ${flag}\nusage: cat [-belnstuv] [file ...]`);
+      process.exit(1);
+    }
+  }
+}
+
+function bFlag() {
+  return allFilesContents.map((fileContent) => {
     let lineNumber = 1;
-    return lines.map((line) => {
-      if (line === "") {
+    return fileContent.map((line, index) => {
+      if (line == "") {
         return `${line}`;
       }
       return `${String(lineNumber++).padStart(6, " ")} ${line}`;
     });
-  } else {
-    return lines;
-  }
+  });
 }
 
-filePaths.forEach((filePath) => {
-  let lines = splitFile(filePath);
-  lines = executeFlag(lines);
-  printFile(lines);
-});
+function nFlag() {
+  return allFilesContents.map((fileContent) => {
+    return fileContent.map((line, index) => `${String(index + 1).padStart(6, " ")} ${line}`);
+  });
+}
+
+function printLines() {
+  allFilesContents.forEach((fileContent) => {
+    fileContent.forEach((line) => {
+      console.log(line);
+    });
+  });
+}
