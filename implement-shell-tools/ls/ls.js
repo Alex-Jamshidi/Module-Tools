@@ -25,8 +25,6 @@ let dirArgs;
 let fileArgs;
 let outputString = "";
 
-const rawData = fs.readdirSync(currentWorkingDirectory);
-
 checkArgsLength();
 executeFlags();
 filterFilesAndDirs();
