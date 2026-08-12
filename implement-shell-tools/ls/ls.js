@@ -115,7 +115,7 @@ function removeDotFiles(fileList) {
 }
 
 function print() {
-  if (printInList == true) {
+  if (printInList) {
     Flag1();
   }
   console.log(outputString.trimEnd());
