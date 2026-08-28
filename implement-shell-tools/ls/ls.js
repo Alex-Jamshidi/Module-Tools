@@ -18,12 +18,12 @@ function ls(args) {
 
   executeFlags(getFlags(userArgs));
 
-  const fsItems = checkArgsLength(getFsItems(userArgs));
   const currentWorkingDirectory = getCurrentWorkingDirectory(args);
-  const dirArgs = getDirArgs(fsItems, currentWorkingDirectory);
-  const fileArgs = getFileArgs(fsItems, currentWorkingDirectory);
+  const fsItems = checkArgsLength(getFsItems(userArgs));
+  const dirArgs = getDirArgs(currentWorkingDirectory, fsItems);
+  const fileArgs = getFileArgs(currentWorkingDirectory, fsItems);
 
-  print(populateOutput(fsItems, dirArgs, fileArgs, currentWorkingDirectory));
+  print(populateOutput(currentWorkingDirectory, fsItems, dirArgs, fileArgs));
 }
 
 function getFsItems(userArgs) {
@@ -69,17 +69,17 @@ function checkArgsLength(fsItems) {
   return fsItems;
 }
 
-function getDirArgs(fsItems, currentWorkingDirectory) {
+function getDirArgs(currentWorkingDirectory, fsItems) {
   return fsItems.filter((p) => fs.statSync(currentWorkingDirectory + "/" + p).isDirectory());
 }
 
-function getFileArgs(fsItems, currentWorkingDirectory) {
+function getFileArgs(currentWorkingDirectory, fsItems) {
   const fileArgs = fsItems.filter((p) => !fs.statSync(currentWorkingDirectory + "/" + p).isDirectory());
   if (showAll == false) removeDotFiles(fileArgs);
   return fileArgs;
 }
 
-function populateOutput(fsItems, dirArgs, fileArgs, currentWorkingDirectory) {
+function populateOutput(currentWorkingDirectory, fsItems, dirArgs, fileArgs) {
   let outputString = "";
   if (fsItems.length == 1) {
     fileArgs.forEach((file) => {
