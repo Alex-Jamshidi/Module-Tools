@@ -14,20 +14,16 @@ ls(process.argv);
 // ----------
 
 function ls(args) {
-  const userArgs = getUserArgs(args);
-  const currentWorkingDirectory = getCurrentWorkingDirectory(args);
-  const fsItems = checkArgsLength(getFsItems(userArgs));
+  const userArgs = args.slice(2);
 
   executeFlags(getFlags(userArgs));
 
+  const fsItems = checkArgsLength(getFsItems(userArgs));
+  const currentWorkingDirectory = getCurrentWorkingDirectory(args);
   const dirArgs = getDirArgs(fsItems, currentWorkingDirectory);
   const fileArgs = getFileArgs(fsItems, currentWorkingDirectory);
 
   print(populateOutput(fsItems, dirArgs, fileArgs, currentWorkingDirectory));
-}
-
-function getUserArgs(args) {
-  return args.slice(2);
 }
 
 function getFsItems(userArgs) {
