@@ -1,18 +1,8 @@
 const fs = require("fs");
 const { allowedNodeEnvironmentFlags } = require("process");
 
-const flagHandlers = {
-  1: Flag1,
-  a: Flaga,
-};
-
-let printInList = false;
-let showAll = false;
-
-ls(process.argv);
-
-// ----------
-
+//
+// ===== ls Procedure =====
 function ls(args) {
   const userArgs = args.slice(2);
 
@@ -28,6 +18,13 @@ function ls(args) {
 
 //
 // ===== Flag Handling =====
+const flagHandlers = {
+  1: Flag1,
+  a: Flaga,
+};
+
+let printInList = false;
+let showAll = false;
 
 function getFlags(userArgs) {
   return userArgs
@@ -63,8 +60,7 @@ function Flaga() {
 }
 
 //
-// ===== Extracting data from arguments =====
-
+// ===== Extracting Data From Arguments =====
 function getCurrentWorkingDirectory(args) {
   const index = args[1].lastIndexOf("/");
   return args[1].slice(0, index);
@@ -90,8 +86,7 @@ function getFileArgs(currentWorkingDirectory, fsItems) {
 }
 
 //
-// ===== Outputting Data =====
-
+// ===== Populating and Outputting Data =====
 function populateOutput(currentWorkingDirectory, fsItems, dirArgs, fileArgs) {
   let outputString = "";
   if (fsItems.length == 1) {
@@ -139,3 +134,7 @@ function print(outputString) {
   if (printInList) output = makeList(output);
   console.log(output.trimEnd());
 }
+
+//
+// ===== Run ls =====
+ls(process.argv);
