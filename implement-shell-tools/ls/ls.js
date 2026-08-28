@@ -60,9 +60,8 @@ function invalidFlagError() {
   process.exit(1);
 }
 
-function Flag1(outputString) {
-  if (printInList) return outputString.replaceAll("\t", "\n").replaceAll("\n\n", "\n");
-  else printInList = true;
+function Flag1() {
+  printInList = true;
 }
 
 function Flaga() {
@@ -128,6 +127,10 @@ function removeDotFiles(fileList) {
 
 function print(outputString) {
   let output = outputString;
-  if (printInList) output = Flag1(output);
+  if (printInList) output = makeList(output);
   console.log(output.trimEnd());
+}
+
+function makeList(outputString) {
+  return outputString.replaceAll("\t", "\n").replaceAll("\n\n", "\n");
 }
