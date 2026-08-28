@@ -26,14 +26,8 @@ function ls(args) {
   print(populateOutput(currentWorkingDirectory, fsItems, dirArgs, fileArgs));
 }
 
-function getFsItems(userArgs) {
-  return userArgs.filter((arg) => !arg.startsWith("-"));
-}
-
-function getCurrentWorkingDirectory(args) {
-  const index = args[1].lastIndexOf("/");
-  return args[1].slice(0, index);
-}
+//
+// ===== Flag Handling =====
 
 function getFlags(userArgs) {
   return userArgs
@@ -60,8 +54,24 @@ function Flag1() {
   printInList = true;
 }
 
+function makeList(outputString) {
+  return outputString.replaceAll("\t", "\n").replaceAll("\n\n", "\n");
+}
+
 function Flaga() {
   showAll = true;
+}
+
+//
+// ===== Extracting data from arguments =====
+
+function getCurrentWorkingDirectory(args) {
+  const index = args[1].lastIndexOf("/");
+  return args[1].slice(0, index);
+}
+
+function getFsItems(userArgs) {
+  return userArgs.filter((arg) => !arg.startsWith("-"));
 }
 
 function checkArgsLength(fsItems) {
@@ -78,6 +88,9 @@ function getFileArgs(currentWorkingDirectory, fsItems) {
   if (showAll == false) removeDotFiles(fileArgs);
   return fileArgs;
 }
+
+//
+// ===== Outputting Data =====
 
 function populateOutput(currentWorkingDirectory, fsItems, dirArgs, fileArgs) {
   let outputString = "";
@@ -125,8 +138,4 @@ function print(outputString) {
   let output = outputString;
   if (printInList) output = makeList(output);
   console.log(output.trimEnd());
-}
-
-function makeList(outputString) {
-  return outputString.replaceAll("\t", "\n").replaceAll("\n\n", "\n");
 }

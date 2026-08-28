@@ -47,15 +47,25 @@ function executeFlags() {
 }
 
 function bFlag() {
-  return allFilesContents.map((fileContent) => {
+  const resultFiles = [];
+
+  for (const fileContent of allFilesContents) {
+    const formattedLines = [];
     let lineNumber = 1;
-    return fileContent.map((line, index) => {
-      if (line == "") {
-        return `${line}`;
+
+    for (const line of fileContent) {
+      if (line === "") {
+        formattedLines.push(line);
+      } else {
+        const formattedLine = `${String(lineNumber++).padStart(6, " ")} ${line}`;
+        formattedLines.push(formattedLine);
       }
-      return `${String(lineNumber++).padStart(6, " ")} ${line}`;
-    });
-  });
+    }
+
+    resultFiles.push(formattedLines);
+  }
+
+  return resultFiles;
 }
 
 function nFlag() {
