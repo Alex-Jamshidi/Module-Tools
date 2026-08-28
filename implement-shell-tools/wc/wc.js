@@ -1,64 +1,92 @@
 const fs = require("fs");
 const { allowedNodeEnvironmentFlags } = require("process");
 
-const arguments = process.argv;
-const userArguments = arguments.slice(2);
+const metrics = ["lineCount", "wordCount", "byteSize"];
+const displayedMetrics = [];
 
-const index = arguments[1].lastIndexOf("/");
-const currentWorkingDirectory = arguments[1].slice(0, index + 1);
+//
+// ===== wc Procedure =====
+function wc(args) {
+  const userArgs = args.slice(2);
 
-const flags = userArguments
-  .filter((argument) => argument.startsWith("-"))
-  .map((argument) => argument.slice(1))
-  .join("");
+  executeFlags(getFlags(userArgs));
 
+  const currentWorkingDirectory = getCurrentWorkingDirectory(args);
+  const fileNames = getFileNames(userArgs);
+
+  const allFilesData = addTotals(extractFilesData(fileNames, currentWorkingDirectory));
+  printOutput(allFilesData);
+}
+
+//
+// ===== Flag Handling =====
 const flagHandlers = {
   l: lFlag,
   w: wFlag,
   c: cFlag,
 };
 
-const metrics = ["lineCount", "wordCount", "byteSize"];
-const fileNames = userArguments.filter((argument) => !argument.startsWith("-"));
-const allFilesData = [];
+function getFlags(userArgs) {
+  return userArgs
+    .filter((arg) => arg.startsWith("-"))
+    .map((arg) => arg.slice(1))
+    .join("");
+}
 
-extractFilesData();
-addTotals();
-const outputData = structuredClone(allFilesData);
+function executeFlags(flags) {
+  for (const flag of flags) {
+    if (flagHandlers[flag]) flagHandlers[flag]();
+    else invalidFlagError();
+  }
+}
 
-let deleted = false;
-executeFlags();
-printOutput();
+function invalidFlagError() {
+  console.error(`wc: illegal option -- ${flag}\nusage: wc [-Lclmw] [file ...]`);
+  process.exit(1);
+}
 
-function extractFilesData() {
+function lFlag() {
+  displayedMetrics.push("lineCount");
+}
+
+function wFlag() {
+  displayedMetrics.push("wordCount");
+}
+
+function cFlag() {
+  displayedMetrics.push("byteSize");
+}
+
+//
+// ===== Extracting Data From Arguments =====
+function getCurrentWorkingDirectory(args) {
+  const index = args[1].lastIndexOf("/");
+  return args[1].slice(0, index + 1);
+}
+
+function getFileNames(userArgs) {
+  return userArgs.filter((argument) => !argument.startsWith("-"));
+}
+
+//
+// ===== Extracting Files Data =====
+function extractFilesData(fileNames, currentWorkingDirectory) {
+  const allFilesData = [];
+
   fileNames.forEach((fileName) => {
     const fileData = {};
     fileData.name = fileName;
-    fileData.text = readFile(fileName);
+    fileData.text = readFile(fileName, currentWorkingDirectory);
     fileData.lineCount = calculateLineCount(fileData.text);
     fileData.wordCount = calculateWordCount(fileData.text);
-    fileData.byteSize = readByteSize(fileName);
+    fileData.byteSize = readByteSize(fileName, currentWorkingDirectory);
 
     allFilesData.push(fileData);
   });
+  return allFilesData;
 }
 
-function addTotals() {
-  if (allFilesData.length == 1) {
-    return;
-  }
-  const totalsData = { name: "total" };
-  metrics.forEach((metric) => {
-    let sum = 0;
-    allFilesData.forEach((file) => {
-      sum += file[metric];
-    });
-    totalsData[metric] = sum;
-  });
-  allFilesData.push(totalsData);
-}
-
-function readFile(fileName) {
+function readFile(fileName, currentWorkingDirectory) {
   const filePath = currentWorkingDirectory + fileName;
   return fs.readFileSync(filePath, "utf8").trimEnd();
 }
@@ -71,71 +99,41 @@ function calculateWordCount(text) {
   return text.split(/\s+/).length;
 }
 
-function readByteSize(fileName) {
+function readByteSize(fileName, currentWorkingDirectory) {
   return fs.statSync(currentWorkingDirectory + fileName).size;
 }
 
-function executeFlags() {
-  for (const flag of flags) {
-    if (flagHandlers[flag]) {
-      allFilesContents = flagHandlers[flag]();
-    } else {
-      console.error(`wc: illegal option -- ${flag}\nusage: wc [-Lclmw] [file ...]`);
-      process.exit(1);
-    }
-  }
-}
+function addTotals(allFilesData) {
+  if (allFilesData.length == 1) return allFilesData;
 
-function lFlag() {
-  deleteOutputs();
-  allFilesData.forEach((sourceFile) => {
-    const targetFile = outputData.find((file) => file.name === sourceFile.name);
-    targetFile.lineCount = getIfTrue(sourceFile, "lineCount");
-  });
-}
-
-function wFlag() {
-  deleteOutputs();
-  allFilesData.forEach((sourceFile) => {
-    const targetFile = outputData.find((file) => file.name === sourceFile.name);
-    targetFile.wordCount = getIfTrue(sourceFile, "wordCount");
-  });
-}
-
-function cFlag() {
-  deleteOutputs();
-  allFilesData.forEach((sourceFile) => {
-    const targetFile = outputData.find((file) => file.name === sourceFile.name);
-    targetFile.byteSize = getIfTrue(sourceFile, "byteSize");
-  });
-}
-
-function deleteOutputs() {
-  if (!deleted) {
-    outputData.forEach((file) => {
-      metrics.forEach((metric) => {
-        delete file[metric];
-      });
+  const totalsData = { name: "total" };
+  metrics.forEach((metric) => {
+    let sum = 0;
+    allFilesData.forEach((file) => {
+      sum += file[metric];
     });
-  }
-  deleted = true;
+    totalsData[metric] = sum;
+  });
+  allFilesData.push(totalsData);
+  return allFilesData;
 }
 
-function printOutput() {
-  outputs = [];
+//
+// ===== Outputting Data =====
+function printOutput(outputData) {
   outputData.forEach((file) => {
     let outputString = "";
     metrics.forEach((metric) => {
-      outputString += getIfTrue(file, metric);
+      if (displayedMetrics.length === 0 || displayedMetrics.includes(metric)) {
+        outputString += String(file[metric]).padStart(8, " ");
+      }
     });
+
     outputString += ` ${file.name}`;
     console.log(outputString);
   });
 }
 
-function getIfTrue(file, metric) {
-  if (file[metric]) {
-    return String(file[metric]).padStart(8, " ");
-  }
-  return "";
-}
+//
+// ===== Run wc =====
+wc(process.argv);
