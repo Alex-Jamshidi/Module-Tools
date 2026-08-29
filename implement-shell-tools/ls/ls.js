@@ -63,7 +63,7 @@ function Flaga() {
 // ===== Extracting Data From Arguments =====
 function getCurrentWorkingDirectory(args) {
   const index = args[1].lastIndexOf("/");
-  return args[1].slice(0, index);
+  return args[1].slice(0, index + 1);
 }
 
 function getFsItems(userArgs) {
@@ -76,11 +76,11 @@ function checkArgsLength(fsItems) {
 }
 
 function getDirArgs(currentWorkingDirectory, fsItems) {
-  return fsItems.filter((p) => fs.statSync(currentWorkingDirectory + "/" + p).isDirectory());
+  return fsItems.filter((p) => fs.statSync(currentWorkingDirectory + p).isDirectory());
 }
 
 function getFileArgs(currentWorkingDirectory, fsItems) {
-  const fileArgs = fsItems.filter((p) => !fs.statSync(currentWorkingDirectory + "/" + p).isDirectory());
+  const fileArgs = fsItems.filter((p) => !fs.statSync(currentWorkingDirectory + p).isDirectory());
   if (showAll == false) removeDotFiles(fileArgs);
   return fileArgs;
 }
@@ -108,7 +108,7 @@ function populateOutput(currentWorkingDirectory, fsItems, dirArgs, fileArgs) {
 }
 
 function dirOutput(dir, currentWorkingDirectory) {
-  let contents = fs.readdirSync(currentWorkingDirectory + "/" + dir);
+  let contents = fs.readdirSync(currentWorkingDirectory + dir);
   let outputStr = "";
   if (showAll) outputStr += ".\t..\t";
   else {

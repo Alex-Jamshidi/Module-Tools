@@ -33,9 +33,9 @@ function getFlags(userArgs) {
     .join("");
 }
 
-function executeFlags(flags) {
+function executeFlags(flags, allFilesData) {
   for (const flag of flags) {
-    if (flagHandlers[flag]) flagHandlers[flag]();
+    if (flagHandlers[flag]) flagHandlers[flag](allFilesData);
     else invalidFlagError();
   }
 }
