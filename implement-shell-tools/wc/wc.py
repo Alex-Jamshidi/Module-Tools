@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument("-l", action="store_true", help="Show line count")
 parser.add_argument("-w", action="store_true", help="Show word count")
 parser.add_argument("-c", action="store_true", help="Show byte size")
-parser.add_argument("files names", nargs="*", help="File names to process")
+parser.add_argument("files", nargs="*", help="File names to process")
 
 args = parser.parse_args()
 
@@ -23,7 +23,7 @@ displayed_metrics = []
 # ===== wc Procedure =====
 def wc(args):
     cwd = os.getcwd()
-    file_names = args.message
+    file_names = args.files
 
     execute_flags()
     all_files_data = add_totals(extract_files_data(file_names, cwd))
