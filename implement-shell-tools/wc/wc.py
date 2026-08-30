@@ -99,5 +99,3 @@ def print_output(output_data):
 
 # ===== Run wc =====
 wc(parser.parse_args())
-
-
