@@ -6,13 +6,13 @@ from pathlib import Path
 # Argument Handling
 parser = argparse.ArgumentParser(
     prog="wc",
-    description="Give total word count of file",
+    description="Print line, word, and byte counts for each file.",
 )
 
 parser.add_argument("-l", action="store_true", help="Show line count")
 parser.add_argument("-w", action="store_true", help="Show word count")
 parser.add_argument("-c", action="store_true", help="Show byte size")
-parser.add_argument("message", nargs="*", help="File names to process")
+parser.add_argument("files names", nargs="*", help="File names to process")
 
 args = parser.parse_args()
 
@@ -63,10 +63,8 @@ def calculate_line_count(text):
     return 0
   return len(text.splitlines())
 
-
 def calculate_word_count(text):
   return len(text.split())
-
 
 def read_byte_size(file_name, cwd):
   file_path = os.path.join(cwd, file_name)
