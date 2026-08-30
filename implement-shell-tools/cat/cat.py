@@ -38,11 +38,11 @@ def read_file(file_name, cwd):
 # ===== Flag Handling =====
 def execute_flags(all_files_contents):
     if args.b:
-        line_number = 1
         for file_content in all_files_contents:
-            for index, line in enumerate(file_content):
+            line_number = 1
+            for line_idx, line in enumerate(file_content):
                 if line != "":
-                    file_content[index] = f"{line_number:>6}\t{line}"
+                    file_content[line_idx] = f"{line_number:>6}\t{line}"
                     line_number += 1
  
     elif args.n:
