@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument("-b", action="store_true", help="Numbers lines that aren't empty")
 parser.add_argument("-n", action="store_true", help="Numbers all lines")
-parser.add_argument("file_names", nargs="*", help="Files or folders to display")
+parser.add_argument("file_names", nargs="*", help="Files for which to display content")
 
 args = parser.parse_args()
 
