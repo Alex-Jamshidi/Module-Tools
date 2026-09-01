@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from enum import Enum
 import sys
 
- # -----  Classes and Enums
+ # ----- Classes and Enums
 class OperatingSystem(Enum):
     MACOS = "macOS"
     ARCH = "Arch Linux"
@@ -36,10 +36,10 @@ def count_laptops(laptops: list[Laptop], laptop_counts: dict[str, int]):
     for laptop in laptops:
         laptop_counts[laptop.operating_system] += 1 
 
-def check_laptop_abundance(operating_system: OperatingSystem, laptop_counts: dict[OperatingSystem, int]):
+def check_laptop_abundance(user: Person, laptop_counts: dict[OperatingSystem, int]):
     abundant_laptops = []
     for laptop in laptop_counts:
-        if laptop_counts[laptop] > laptop_counts[operating_system]:
+        if laptop_counts[laptop] > laptop_counts[user.preferred_operating_system]:
             abundant_laptops.append(laptop.value)
     if len(abundant_laptops) > 0:
         print("\nIf you are willing to accept another operating system you may get a laptop sooner.")
@@ -47,7 +47,7 @@ def check_laptop_abundance(operating_system: OperatingSystem, laptop_counts: dic
         for laptop in abundant_laptops:
             print(laptop)
             
- # -----   Data and Constants
+ # ----- Data and Constants
 laptops = [
     Laptop(id=1, operating_system=OperatingSystem.ARCH),
     Laptop(id=2, operating_system=OperatingSystem.ARCH),
@@ -65,7 +65,7 @@ laptop_counts = {
     OperatingSystem.WINDOWS: 0
 }
 
- # -----  Script
+ # ----- Script
 user_name = input("Please enter your full name:\n")
 user_age_str = input("Please enter your age:\n")
 
@@ -85,4 +85,4 @@ user = Person(user_name, user_age, user_operating_system)
 count_laptops(laptops, laptop_counts)
 print(f"\nThe number of available laptops with {user_operating_system.value} is: {laptop_counts[user_operating_system]}")
 
-check_laptop_abundance(user_operating_system, laptop_counts)
+check_laptop_abundance(user, laptop_counts)
