@@ -3,7 +3,7 @@ import math
 from datetime import datetime
 from collections import Counter
 
-from laptop_allocation import OperatingSystem, Person, Laptop
+from laptop_allocation import OperatingSystem, Person, Laptop, allocate_laptops
 
 
 # ----- Log and Print functions
@@ -65,7 +65,7 @@ def create_people() -> list[Person]:
 
 def get_preferred_OS_list() -> list[OperatingSystem]:
     number_of_preferences = random.choices([1, 2, 3], OS_preference_weightings)
-    return random.choices(list(OperatingSystem), k=number_of_preferences[0])
+    return random.sample(list(OperatingSystem), k=number_of_preferences[0])
 
 def create_laptops() -> list[Laptop]:
     laptops = []
@@ -140,3 +140,5 @@ count_operating_systems(laptops)
 count_first_choice_operating_systems(people)
 count_second_choice_operating_systems(people)
 count_third_choice_operating_systems(people)
+
+allocate_laptops(people, laptops)

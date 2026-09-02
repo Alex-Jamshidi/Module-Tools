@@ -26,11 +26,6 @@ class Laptop:
 
 # ----- Functions
 def allocate_laptops(people: list[Person], laptops: list[Laptop]) -> dict[Person, Laptop]:
+    print("allocating laptops...")
     return
-# ----- Data
-laptops = [
-    Laptop(id=1, manufacturer="Dell", model="XPS", screen_size_in_inches=13, operating_system=OperatingSystem.ARCH),
-    Laptop(id=2, manufacturer="Dell", model="XPS", screen_size_in_inches=15, operating_system=OperatingSystem.UBUNTU),
-    Laptop(id=3, manufacturer="Dell", model="XPS", screen_size_in_inches=15, operating_system=OperatingSystem.UBUNTU),
-    Laptop(id=4, manufacturer="Apple", model="macBook", screen_size_in_inches=13, operating_system=OperatingSystem.MACOS),
-]
+
