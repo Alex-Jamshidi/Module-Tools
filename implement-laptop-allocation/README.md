@@ -4,7 +4,6 @@
 A program that assigns laptops to people based on a list of operating system preferences, it includes a simulation that can be re-run to simulate different scenarios.
 
 ## Specification
-
 Create a program that alllocate laptops to people based on a list of preferred operating systems. Every person should be allocated exactly one laptop.
 
 If we define "sadness" as the number of places down in someone's ranking the operating system the ended up with (i.e. if your preferences were [UBUNTU, ARCH, MACOS] and you were allocated a MACOS machine your sadness would be 2), we want to minimise the total sadness of all people. If we allocate someone a laptop with an operating system not in their preferred list, treat them as having a sadness of 100.
