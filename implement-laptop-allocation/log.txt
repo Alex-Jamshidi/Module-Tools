@@ -1,167 +1,135 @@
 -------------------------------------------
-Simulation created at: 02-09-2026 02:35:26
+Simulation created at: 03-09-2026 04:29:49
 -------------------------------------------
-Laptop to person weighting = 0.80
-Number of People: 76
-Number of Laptops: 60
-Percentage chance of 1 preference: 8.37%
-Percentage chance of 2 preference: 89.90%
-Percentage chance of 3 preference: 1.74%
+Laptop to person weighting = 0.84
+Number of People: 21
+Number of Laptops: 17
+
+Laptop surplus/deficit: -4
+
+Percentage chance of 1 preference: 48.75%
+Percentage chance of 2 preference: 11.71%
+Percentage chance of 3 preference: 39.55%
 
 ===== List of Laptops =====
-ID: 0 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 1 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 15 |  OS: macOS
-ID: 2 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 15 |  OS: macOS
+ID: 1 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
+ID: 2 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Arch Linux
 ID: 3 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Arch Linux
-ID: 4 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 5 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
-ID: 6 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Ubuntu
-ID: 7 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Arch Linux
-ID: 8 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 17 |  OS: Ubuntu
-ID: 9 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 17 |  OS: macOS
-ID: 10 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Arch Linux
+ID: 4 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Ubuntu
+ID: 5 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Ubuntu
+ID: 6 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Arch Linux
+ID: 7 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 17 |  OS: Ubuntu
+ID: 8 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
+ID: 9 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Ubuntu
+ID: 10 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Arch Linux
 ID: 11 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 17 |  OS: macOS
-ID: 12 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Arch Linux
-ID: 13 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 14 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Ubuntu
-ID: 15 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
-ID: 16 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 15 |  OS: macOS
-ID: 17 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 17 |  OS: macOS
-ID: 18 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Ubuntu
-ID: 19 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 17 |  OS: macOS
-ID: 20 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 21 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Ubuntu
-ID: 22 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Arch Linux
-ID: 23 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Arch Linux
-ID: 24 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
-ID: 25 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 13 |  OS: macOS
-ID: 26 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Ubuntu
-ID: 27 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
-ID: 28 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 17 |  OS: Arch Linux
-ID: 29 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
-ID: 30 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
-ID: 31 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Arch Linux
-ID: 32 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 17 |  OS: macOS
-ID: 33 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
-ID: 34 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Arch Linux
-ID: 35 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Ubuntu
-ID: 36 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
-ID: 37 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Ubuntu
-ID: 38 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Ubuntu
-ID: 39 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Arch Linux
-ID: 40 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 15 |  OS: macOS
-ID: 41 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 42 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 43 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Arch Linux
-ID: 44 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Arch Linux
-ID: 45 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 15 |  OS: macOS
-ID: 46 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 13 |  OS: macOS
-ID: 47 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Ubuntu
-ID: 48 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Arch Linux
-ID: 49 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 13 |  OS: macOS
-ID: 50 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 13 |  OS: Arch Linux
-ID: 51 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 15 |  OS: macOS
-ID: 52 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Arch Linux
-ID: 53 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Arch Linux
-ID: 54 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
-ID: 55 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
-ID: 56 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 14 |  OS: macOS
-ID: 57 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Ubuntu
-ID: 58 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
-ID: 59 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 17 |  OS: Ubuntu
+ID: 12 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 14 |  OS: Ubuntu
+ID: 13 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Arch Linux
+ID: 14 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 15 |  OS: Ubuntu
+ID: 15 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 17 |  OS: Arch Linux
+ID: 16 |  Manufacturer: Apple |  Model: macBook |  Screen size (inches): 16 |  OS: macOS
+ID: 17 |  Manufacturer: Dell  |  Model: XPS     |  Screen size (inches): 16 |  OS: Ubuntu
 
 ===== List of People =====
-Name: Person 1 |  Age: 54 |  Preferred OS: macOS, Arch Linux
-Name: Person 2 |  Age: 35 |  Preferred OS: Ubuntu, macOS
-Name: Person 3 |  Age: 49 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 4 |  Age: 61 |  Preferred OS: macOS, Ubuntu
-Name: Person 5 |  Age: 74 |  Preferred OS: macOS, Arch Linux
-Name: Person 6 |  Age: 62 |  Preferred OS: macOS, Arch Linux
-Name: Person 7 |  Age: 30 |  Preferred OS: macOS, Ubuntu
-Name: Person 8 |  Age: 26 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 9 |  Age: 67 |  Preferred OS: Arch Linux, macOS
-Name: Person 10 |  Age: 78 |  Preferred OS: Arch Linux, macOS
-Name: Person 11 |  Age: 66 |  Preferred OS: macOS
-Name: Person 12 |  Age: 27 |  Preferred OS: macOS, Arch Linux
-Name: Person 13 |  Age: 46 |  Preferred OS: macOS, Ubuntu
-Name: Person 14 |  Age: 20 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 15 |  Age: 50 |  Preferred OS: macOS, Arch Linux
-Name: Person 16 |  Age: 35 |  Preferred OS: Arch Linux, macOS
-Name: Person 17 |  Age: 35 |  Preferred OS: macOS, Ubuntu
-Name: Person 18 |  Age: 94 |  Preferred OS: macOS, Arch Linux
-Name: Person 19 |  Age: 60 |  Preferred OS: macOS, Ubuntu
-Name: Person 20 |  Age: 56 |  Preferred OS: macOS, Arch Linux
-Name: Person 21 |  Age: 79 |  Preferred OS: Ubuntu, macOS
-Name: Person 22 |  Age: 30 |  Preferred OS: Ubuntu, macOS
-Name: Person 23 |  Age: 27 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 24 |  Age: 89 |  Preferred OS: macOS, Ubuntu
-Name: Person 25 |  Age: 68 |  Preferred OS: macOS, Arch Linux
-Name: Person 26 |  Age: 18 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 27 |  Age: 66 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 28 |  Age: 48 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 29 |  Age: 20 |  Preferred OS: macOS, Arch Linux
-Name: Person 30 |  Age: 42 |  Preferred OS: macOS, Arch Linux
-Name: Person 31 |  Age: 19 |  Preferred OS: Ubuntu, macOS
-Name: Person 32 |  Age: 91 |  Preferred OS: macOS, Arch Linux
-Name: Person 33 |  Age: 53 |  Preferred OS: Ubuntu, macOS
-Name: Person 34 |  Age: 89 |  Preferred OS: macOS, Arch Linux
-Name: Person 35 |  Age: 63 |  Preferred OS: Arch Linux, macOS
-Name: Person 36 |  Age: 69 |  Preferred OS: Arch Linux, macOS
-Name: Person 37 |  Age: 40 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 38 |  Age: 71 |  Preferred OS: macOS, Ubuntu
-Name: Person 39 |  Age: 89 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 40 |  Age: 68 |  Preferred OS: macOS, Arch Linux, Ubuntu
-Name: Person 41 |  Age: 92 |  Preferred OS: Ubuntu, macOS
-Name: Person 42 |  Age: 41 |  Preferred OS: macOS, Ubuntu
-Name: Person 43 |  Age: 89 |  Preferred OS: Arch Linux, macOS
-Name: Person 44 |  Age: 81 |  Preferred OS: Ubuntu, macOS
-Name: Person 45 |  Age: 83 |  Preferred OS: macOS, Ubuntu
-Name: Person 46 |  Age: 54 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 47 |  Age: 42 |  Preferred OS: Ubuntu, macOS
-Name: Person 48 |  Age: 82 |  Preferred OS: macOS
-Name: Person 49 |  Age: 56 |  Preferred OS: Arch Linux, macOS
-Name: Person 50 |  Age: 76 |  Preferred OS: macOS, Arch Linux
-Name: Person 51 |  Age: 53 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 52 |  Age: 98 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 53 |  Age: 92 |  Preferred OS: Arch Linux, macOS
-Name: Person 54 |  Age: 57 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 55 |  Age: 69 |  Preferred OS: macOS, Ubuntu
-Name: Person 56 |  Age: 75 |  Preferred OS: Arch Linux, macOS, Ubuntu
-Name: Person 57 |  Age: 87 |  Preferred OS: Arch Linux, Ubuntu
-Name: Person 58 |  Age: 24 |  Preferred OS: Arch Linux
-Name: Person 59 |  Age: 47 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 60 |  Age: 65 |  Preferred OS: macOS, Arch Linux
-Name: Person 61 |  Age: 21 |  Preferred OS: Ubuntu, macOS
-Name: Person 62 |  Age: 39 |  Preferred OS: macOS
-Name: Person 63 |  Age: 33 |  Preferred OS: macOS, Arch Linux
-Name: Person 64 |  Age: 78 |  Preferred OS: macOS, Ubuntu
-Name: Person 65 |  Age: 20 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 66 |  Age: 95 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 67 |  Age: 20 |  Preferred OS: Arch Linux, macOS
-Name: Person 68 |  Age: 87 |  Preferred OS: Arch Linux, macOS
-Name: Person 69 |  Age: 83 |  Preferred OS: Arch Linux, macOS
-Name: Person 70 |  Age: 94 |  Preferred OS: macOS, Arch Linux
-Name: Person 71 |  Age: 62 |  Preferred OS: Ubuntu, Arch Linux
-Name: Person 72 |  Age: 99 |  Preferred OS: macOS, Ubuntu
-Name: Person 73 |  Age: 94 |  Preferred OS: Ubuntu, macOS
-Name: Person 74 |  Age: 76 |  Preferred OS: macOS, Ubuntu
-Name: Person 75 |  Age: 85 |  Preferred OS: macOS, Ubuntu
-Name: Person 76 |  Age: 56 |  Preferred OS: Ubuntu, macOS
+Name: Person 1 |  Age: 45 |  Preferred OS: Ubuntu
+Name: Person 2 |  Age: 46 |  Preferred OS: macOS, Arch Linux, Ubuntu
+Name: Person 3 |  Age: 56 |  Preferred OS: Ubuntu
+Name: Person 4 |  Age: 85 |  Preferred OS: Arch Linux, Ubuntu
+Name: Person 5 |  Age: 60 |  Preferred OS: macOS, Ubuntu, Arch Linux
+Name: Person 6 |  Age: 89 |  Preferred OS: Arch Linux, Ubuntu
+Name: Person 7 |  Age: 62 |  Preferred OS: macOS
+Name: Person 8 |  Age: 21 |  Preferred OS: macOS
+Name: Person 9 |  Age: 59 |  Preferred OS: macOS
+Name: Person 10 |  Age: 46 |  Preferred OS: macOS
+Name: Person 11 |  Age: 82 |  Preferred OS: macOS
+Name: Person 12 |  Age: 33 |  Preferred OS: Arch Linux, macOS, Ubuntu
+Name: Person 13 |  Age: 33 |  Preferred OS: Arch Linux
+Name: Person 14 |  Age: 48 |  Preferred OS: Ubuntu, Arch Linux, macOS
+Name: Person 15 |  Age: 67 |  Preferred OS: Ubuntu, macOS, Arch Linux
+Name: Person 16 |  Age: 26 |  Preferred OS: macOS, Arch Linux, Ubuntu
+Name: Person 17 |  Age: 66 |  Preferred OS: macOS
+Name: Person 18 |  Age: 31 |  Preferred OS: Ubuntu, macOS, Arch Linux
+Name: Person 19 |  Age: 42 |  Preferred OS: Arch Linux, Ubuntu, macOS
+Name: Person 20 |  Age: 97 |  Preferred OS: Arch Linux, Ubuntu, macOS
+Name: Person 21 |  Age: 79 |  Preferred OS: Ubuntu
 
 Laptop operating system options:
-Arch Linux: 16
-Ubuntu: 17
-macOS: 27
+Arch Linux: 6
+Ubuntu: 8
+macOS: 3
 
 First choice of operating systems:
-Arch Linux: 22
-Ubuntu: 20
-macOS: 34
+Arch Linux: 6
+Ubuntu: 6
+macOS: 9
 
 Second choice of operating systems:
-Arch Linux: 26
-Ubuntu: 23
-macOS: 23
+Arch Linux: 3
+Ubuntu: 5
+macOS: 3
 
 Third choice of operating systems:
-Ubuntu: 2
+Arch Linux: 3
+Ubuntu: 3
+macOS: 3
+
+First choice OS given: 15
+Second choice OS given: 1
+Third choice OS given: 1
+
+>>>>> Total Sadness Score: 403 <<<<<
+
+Note: Due to a deficit of 4 laptops, the minimum sadness score theoretically achievable could never be less than 400
+
+===== Allocations =====
+Person 1 -- Preferred OS: Ubuntu 
+----> Laptop ID: 1 -- OS: Ubuntu
+
+Person 2 -- Preferred OS: macOS | Arch Linux | Ubuntu 
+----> Laptop ID: 8 -- OS: macOS
+
+Person 3 -- Preferred OS: Ubuntu 
+----> Laptop ID: 4 -- OS: Ubuntu
+
+Person 4 -- Preferred OS: Arch Linux | Ubuntu 
+----> Laptop ID: 2 -- OS: Arch Linux
+
+Person 5 -- Preferred OS: macOS | Ubuntu | Arch Linux 
+----> Laptop ID: 14 -- OS: Ubuntu
+
+Person 6 -- Preferred OS: Arch Linux | Ubuntu 
+----> Laptop ID: 3 -- OS: Arch Linux
+
+Person 7 -- Preferred OS: macOS 
+----> Laptop ID: 11 -- OS: macOS
+
+Person 8 -- Preferred OS: macOS 
+----> Laptop ID: 16 -- OS: macOS
+
+Person 12 -- Preferred OS: Arch Linux | macOS | Ubuntu 
+----> Laptop ID: 6 -- OS: Arch Linux
+
+Person 13 -- Preferred OS: Arch Linux 
+----> Laptop ID: 10 -- OS: Arch Linux
+
+Person 14 -- Preferred OS: Ubuntu | Arch Linux | macOS 
+----> Laptop ID: 5 -- OS: Ubuntu
+
+Person 15 -- Preferred OS: Ubuntu | macOS | Arch Linux 
+----> Laptop ID: 7 -- OS: Ubuntu
+
+Person 16 -- Preferred OS: macOS | Arch Linux | Ubuntu 
+----> Laptop ID: 17 -- OS: Ubuntu
+
+Person 18 -- Preferred OS: Ubuntu | macOS | Arch Linux 
+----> Laptop ID: 9 -- OS: Ubuntu
+
+Person 19 -- Preferred OS: Arch Linux | Ubuntu | macOS 
+----> Laptop ID: 13 -- OS: Arch Linux
+
+Person 20 -- Preferred OS: Arch Linux | Ubuntu | macOS 
+----> Laptop ID: 15 -- OS: Arch Linux
+
+Person 21 -- Preferred OS: Ubuntu 
+----> Laptop ID: 12 -- OS: Ubuntu
+
