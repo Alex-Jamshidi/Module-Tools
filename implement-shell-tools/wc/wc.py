@@ -1,7 +1,5 @@
 import argparse
-import os
 from pathlib import Path
-
 
 # Argument Handling
 parser = argparse.ArgumentParser(
@@ -20,14 +18,15 @@ args = parser.parse_args()
 metrics = ["line_count", "word_count", "byte_size"]
 displayed_metrics = []
 
+
 # ===== wc Procedure =====
 def wc(args):
-    cwd = os.getcwd()
     file_names = args.files
 
     execute_flags()
-    all_files_data = add_totals(extract_files_data(file_names, cwd))
+    all_files_data = add_totals(extract_files_data(file_names))
     print_output(all_files_data)
+
 
 # ===== Flag Handling =====
 def execute_flags():
@@ -38,44 +37,50 @@ def execute_flags():
     if args.c:
         displayed_metrics.append("byte_size")
 
+
 # ===== Extracting Files Data =====
-def extract_files_data(file_names, cwd):
+def extract_files_data(file_names):
     all_files_data = []
 
     for file_name in file_names:
         file_data = {}
         file_data["name"] = file_name
-        file_data["text"] = read_file(file_name, cwd)
+        file_data["text"] = read_file(file_name)
         file_data["line_count"] = calculate_line_count(file_data["text"])
         file_data["word_count"] = calculate_word_count(file_data["text"])
-        file_data["byte_size"] = read_byte_size(file_name, cwd)
+        file_data["byte_size"] = read_byte_size(file_name)
 
         all_files_data.append(file_data)
 
     return all_files_data
 
-def read_file(file_name, cwd):
-  file_path = Path(cwd) / file_name
-  return file_path.read_text(encoding="utf-8").rstrip()
+
+def read_file(file_name):
+    file_path = Path(file_name)
+    return file_path.read_text(encoding="utf-8").rstrip()
+
 
 def calculate_line_count(text):
-  if not text:
-    return 0
-  return len(text.splitlines())
+    if not text:
+        return 0
+    return len(text.splitlines())
+
 
 def calculate_word_count(text):
-  return len(text.split())
+    return len(text.split())
 
-def read_byte_size(file_name, cwd):
-  file_path = os.path.join(cwd, file_name)
-  return os.path.getsize(file_path)
+
+def read_byte_size(file_name):
+    file_path = Path(file_name)
+    return Path(file_path).stat().st_size
+
 
 def add_totals(all_files_data):
     if len(all_files_data) <= 1:
         return all_files_data
 
     totals_data = {"name": "total"}
-    
+
     for metric in metrics:
         metric_sum = 0
         for file in all_files_data:
@@ -84,6 +89,7 @@ def add_totals(all_files_data):
 
     all_files_data.append(totals_data)
     return all_files_data
+
 
 # ===== Outputting Data =====
 def print_output(output_data):
@@ -96,6 +102,7 @@ def print_output(output_data):
 
         output_string += f" {file['name']}"
         print(output_string)
+
 
 # ===== Run wc =====
 wc(parser.parse_args())
