@@ -61,8 +61,6 @@ def read_file(file_name):
 
 
 def calculate_line_count(text):
-    if not text:
-        return 0
     return len(text.splitlines())
 
 
@@ -93,12 +91,12 @@ def add_totals(all_files_data):
 
 # ===== Outputting Data =====
 def print_output(output_data):
+    active_metrics = displayed_metrics or metrics
     for file in output_data:
         output_string = ""
 
-        for metric in metrics:
-            if not displayed_metrics or metric in displayed_metrics:
-                output_string += str(file[metric]).rjust(8)
+        for metric in active_metrics:
+            output_string += str(file[metric]).rjust(8)
 
         output_string += f" {file['name']}"
         print(output_string)
